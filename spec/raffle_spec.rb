@@ -1,10 +1,14 @@
 require File.dirname(__FILE__) + '/spec_helper.rb'
 require File.dirname(__FILE__) + '/../lib/raffle'
 
+def create_raffle
+  @raffle = Raffle.new(["matt", "dominic"])
+end
+
 describe "a generic Raffle" do
   
   before(:each) do
-    @raffle = Raffle.new(["matt", "dominic"])
+    create_raffle
   end
   
   it "should be able to create a new instance of itself" do
@@ -28,6 +32,18 @@ describe "a generic Raffle" do
     amount_of_participants = @raffle.participants.size
     @raffle.pick_a_winner
     @raffle.participants.size.should == amount_of_participants - 1
+  end
+  
+end
+
+describe 'in teasing mode' do
+   before(:each) do
+     create_raffle
+     @raffle.teasing_mode
+   end  
+    
+  it "should be able to run in teasing mode" do
+    @raffle.mode.should == 'teasing'
   end
   
 end
