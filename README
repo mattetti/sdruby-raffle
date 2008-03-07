@@ -1,0 +1,18 @@
+SDruby Raffle Gem
+=================
+
+Usage:
+------
+
+raffle = Raffle.new(%W{Patrick Ryan Jordan Tom Chris Rob Sam Matt})
+
+>> raffle.participants
+=> ["Patrick", "Ryan", "Jordan", "Tom", "Chris", "Rob", "Sam", "Matt"]
+
+>> raffle.pick_a_winner
+=> "Tom"
+
+>> raffle.participants
+=> ["Patrick", "Ryan", "Jordan", "Chris", "Rob", "Sam", "Matt"]
+
+(note that tom has been removed from the participants list)
