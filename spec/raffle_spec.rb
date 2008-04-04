@@ -47,3 +47,10 @@ describe 'in teasing mode' do
   end
   
 end
+
+describe 'randomize' do
+  
+  ['test1', 'test2', 'test3', 'test4'].randomize.should_not == ['test1', 'test2', 'test3', 'test4']
+  ['test1', 'test2', 'test3', 'test4'].randomize.sort.should == ['test1', 'test2', 'test3', 'test4']
+  
+end

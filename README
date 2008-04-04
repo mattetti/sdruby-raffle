@@ -5,7 +5,6 @@ Usage:
 ------
 
 require 'lib/raffle'
-raffle = Raffle.new(%W{Patrick Ryan Jordan Tom Chris Rob Sam Matt})
 
 >> raffle.participants
 => ["Patrick", "Ryan", "Jordan", "Tom", "Chris", "Rob", "Sam", "Matt"]
@@ -18,4 +17,4 @@ raffle = Raffle.new(%W{Patrick Ryan Jordan Tom Chris Rob Sam Matt})
 
 (note that tom has been removed from the participants list)
 
-use #teasing_mode to go though the entire list of loosers before giving away the winner's name
+use #teasing_mode to go though the entire list of losers before giving away the winner's name

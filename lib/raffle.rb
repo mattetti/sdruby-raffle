@@ -1,6 +1,28 @@
 $:.unshift File.dirname(__FILE__)
 require 'raffle/version'
 
+class Array
+  
+  def randomize
+    a = self.dup
+    result = []
+    self.length.times do
+      result << a.slice!(rand(a.length))
+    end
+    return result
+  end
+  
+  def randomize!
+    a = self.dup
+    result = []
+    self.length.times do
+      result << a.slice!(rand(a.length))
+    end
+    self.replace result
+  end
+  
+end
+
 class Raffle
   
   include RaffleInfo
@@ -31,6 +53,7 @@ class Raffle
   
   def tease_the_loosers(winner)
     p "...and the winner is..."
+    @participants.randomize!
     @participants.each do |looser|
       looser(looser)
     end
@@ -38,7 +61,7 @@ class Raffle
   end
   
   def looser(name)
-    sleep 1
+    sleep 0.5
     p "... #{name} ... NOT"
   end
   
