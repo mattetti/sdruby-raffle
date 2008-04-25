@@ -1,14 +1,15 @@
 require File.dirname(__FILE__) + '/spec_helper.rb'
 require File.dirname(__FILE__) + '/../lib/raffle'
 
-def create_raffle
+def create_normal_raffle
   @raffle = Raffle.new(["matt", "dominic"])
+  @raffle.normal_mode
 end
 
-describe "a generic Raffle" do
+describe "a generic Raffle in normal mode" do
   
   before(:each) do
-    create_raffle
+    create_normal_raffle
   end
   
   it "should be able to create a new instance of itself" do
@@ -38,12 +39,15 @@ end
 
 describe 'in teasing mode' do
    before(:each) do
-     create_raffle
-     @raffle.teasing_mode
+     @raffle = Raffle.new(["matt", "dominic"])
    end  
     
   it "should be able to run in teasing mode" do
     @raffle.mode.should == 'teasing'
+  end
+  
+  it "should have a long and annoying message" do
+    @raffle.pick_a_winner.should include("long congratulations to")
   end
   
 end

@@ -30,7 +30,7 @@ class Raffle
   
   def initialize(participants = [])
     @participants = participants
-    @mode = 'normal'
+    @mode = 'teasing'
   end
   
   def pick_a_winner
@@ -39,7 +39,7 @@ class Raffle
      remove_participant(winner)
      if @mode == 'teasing'
        tease_the_loosers(winner)
-       "congratulations #{winner}!"
+       "long congratulations to #{winner} sent to STDOUT"
      else
        winner
      end 
@@ -47,6 +47,10 @@ class Raffle
    
    def teasing_mode
     @mode = 'teasing'
+   end
+   
+   def normal_mode
+    @mode = 'normal'
    end
 
   protected
